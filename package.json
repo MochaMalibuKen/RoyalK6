@@ -4,10 +4,11 @@
   "description": "JAMstack website for RK6 Youth in Action nonprofit organization",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy",
-    "dev": "eleventy --serve --watch",
-    "start": "eleventy --serve",
-    "build:css": "tailwindcss -i ./src/assets/css/input.css -o ./dist/assets/css/style.css --watch"
+    "build:css": "tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/style.css --minify",
+    "watch:css": "tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/style.css --watch",
+    "build": "npm run build:css && eleventy",
+    "dev": "npm run watch:css & eleventy --serve --watch",
+    "start": "npm run dev"
   },
   "keywords": ["nonprofit", "youth", "jamstack", "eleventy"],
   "author": "RK6 Youth in Action",
