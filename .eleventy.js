@@ -13,7 +13,6 @@ module.exports = function(eleventyConfig) {
       includes: "_includes",
       data: "_data",
       output: "dist"
-    },
-    pathPrefix: "/RoyalK6/"
+    }
   };
 };

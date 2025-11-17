@@ -7,10 +7,11 @@
     <meta name="description" content="{% if description %}{{ description }}{% else %}Empowering young individuals to become proactive leaders and compassionate citizens in their communities.{% endif %}">
     
     <!-- Favicon -->
-    <link rel="icon" href="{{ '/assets/images/favicon.ico' | url }}">
+    <link rel="icon" href="/assets/images/favicon.ico">
     
     <!-- Styles -->
-    <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet">
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +21,7 @@
     <!-- Meta tags for social sharing -->
     <meta property="og:title" content="{% if title %}{{ title }} | {% endif %}RK6 Youth in Action">
     <meta property="og:description" content="{% if description %}{{ description }}{% else %}Empowering young individuals to become proactive leaders and compassionate citizens.{% endif %}">
-    <meta property="og:image" content="{{ '/assets/images/og-image.jpg' | url }}">
+    <meta property="og:image" content="/assets/images/og-image.jpg">
     <meta property="og:url" content="{{ page.url }}">
     <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -31,17 +32,17 @@
             <div class="flex justify-between items-center py-4">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <img id="logo-light" src="{{ '/assets/images/logo-light.png' | url }}" alt="RK6 Youth in Action" class="h-12 w-auto dark:hidden">
-                    <img id="logo-dark" src="{{ '/assets/images/logo-dark.png' | url }}" alt="RK6 Youth in Action" class="h-12 w-auto hidden dark:block">
+                    <img id="logo-light" src="/assets/images/logo-light.png" alt="RK6 Youth in Action" class="h-12 w-auto dark:hidden">
+                    <img id="logo-dark" src="/assets/images/logo-dark.png" alt="RK6 Youth in Action" class="h-12 w-auto hidden dark:block">
                 </div>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="{{ '/' | url }}" class="nav-link">Home</a>
-                    <a href="{{ '/about/' | url }}" class="nav-link">About</a>
-                    <a href="{{ '/programs/' | url }}" class="nav-link">Programs</a>
-                    <a href="{{ '/get-involved/' | url }}" class="nav-link">Get Involved</a>
-                    <a href="{{ '/contact/' | url }}" class="nav-link">Contact</a>
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/about/" class="nav-link">About</a>
+                    <a href="/programs/" class="nav-link">Programs</a>
+                    <a href="/get-involved/" class="nav-link">Get Involved</a>
+                    <a href="/contact/" class="nav-link">Contact</a>
                     
                     <!-- Dark Mode Toggle -->
                     <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
@@ -68,11 +69,11 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-bg-dark border-t border-gray-200 dark:border-gray-700">
             <div class="px-4 py-4 space-y-4">
-                <a href="{{ '/' | url }}" class="block nav-link">Home</a>
-                <a href="{{ '/about/' | url }}" class="block nav-link">About</a>
-                <a href="{{ '/programs/' | url }}" class="block nav-link">Programs</a>
-                <a href="{{ '/get-involved/' | url }}" class="block nav-link">Get Involved</a>
-                <a href="{{ '/contact/' | url }}" class="block nav-link">Contact</a>
+                <a href="/" class="block nav-link">Home</a>
+                <a href="/about/" class="block nav-link">About</a>
+                <a href="/programs/" class="block nav-link">Programs</a>
+                <a href="/get-involved/" class="block nav-link">Get Involved</a>
+                <a href="/contact/" class="block nav-link">Contact</a>
                 <button id="mobile-theme-toggle" class="flex items-center space-x-2 nav-link">
                     <span>Toggle Theme</span>
                 </button>
@@ -91,7 +92,7 @@
             <div class="grid md:grid-cols-4 gap-8">
                 <!-- Logo and Mission -->
                 <div class="md:col-span-2">
-                    <img src="{{ '/assets/images/logo-dark.png' | url }}" alt="RK6 Youth in Action" class="h-12 w-auto mb-4">
+                    <img src="/assets/images/logo-dark.png" alt="RK6 Youth in Action" class="h-12 w-auto mb-4">
                     <p class="text-gray-300 mb-4">
                         Empowering young individuals to become proactive leaders and compassionate citizens in their communities.
                     </p>
@@ -123,10 +124,10 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4 text-rk6-gold">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="{{ '/about/' | url }}" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="{{ '/programs/' | url }}" class="text-gray-300 hover:text-white transition-colors">Programs</a></li>
-                        <li><a href="{{ '/get-involved/' | url }}" class="text-gray-300 hover:text-white transition-colors">Get Involved</a></li>
-                        <li><a href="{{ '/contact/' | url }}" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="/about/" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="/programs/" class="text-gray-300 hover:text-white transition-colors">Programs</a></li>
+                        <li><a href="/get-involved/" class="text-gray-300 hover:text-white transition-colors">Get Involved</a></li>
+                        <li><a href="/contact/" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -145,7 +146,7 @@
     </footer>
     
     <!-- Scripts -->
-    <script src="{{ '/assets/js/main.js' | url }}"></script>
+    <script src="/assets/js/main.js"></script>
     <div id="sparkles-container"></div>
 </body>
 </html>
