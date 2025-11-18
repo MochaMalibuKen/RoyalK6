@@ -4,67 +4,111 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <title>Royal K6</title>
+    <title>Donate • Royal K6</title>
 </head>
-<body>
 
-<header class="site-header">
-  <div class="site-header-inner container">
-    <div class="nav-bar">
-      <div>
-        <div class="logo-text">RK6 Youth in Action</div>
-        <div class="tagline">Your generosity sustains our mission.</div>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="programs.html">Programs</a>
-        <a href="get-involved.html">Get Involved</a>
-        <a href="contact.html">Contact</a>
-        <a href="donate.html">Donate</a>
-      </nav>
+<body class="sparkle-bg">
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo-light.png" alt="Royal K6 Logo">
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a class="donate-nav active" href="donate.html">Donate</a></li>
+        </ul>
     </div>
-  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero sparkle-overlay page-hero">
+    <div class="hero-background">
+        <img src="assets/images/banner-hero.png" alt="Royal K6 service montage">
+    </div>
+    <div class="hero-watermark">
+        <img src="assets/images/logo-light.png" alt="Royal K6 watermark">
+    </div>
+
+    <div class="hero-content hero-grid">
+        <div class="hero-copy">
+            <p class="hero-eyebrow">Support The Mission</p>
+            <h1>Your Generosity Sustains RK6 Youth In Action</h1>
+            <p class="hero-subtext">
+                Gifts fund transportation, meals, program supplies, field trips, and the safe spaces our youth rely on.
+                Every contribution is an investment in resilient young leaders.
+            </p>
+
+            <div class="hero-cta-row">
+                <a href="mailto:Kenya6washington@icloud.com?subject=RK6 Donation" class="btn primary">Give Today</a>
+                <a href="get-involved.html" class="btn glass">View Sponsorship Levels</a>
+            </div>
+        </div>
+
+        <div class="hero-highlights">
+            <div class="highlight-card">
+                <strong>100%</strong>
+                <span>Funds Youth</span>
+            </div>
+            <div class="highlight-card">
+                <strong>Tax</strong>
+                <span>Deductible</span>
+            </div>
+            <div class="highlight-card">
+                <strong>501(c)(3)</strong>
+                <span>EIN 87-0866832</span>
+            </div>
+        </div>
+    </div>
 </header>
 
-<main class="container" style="padding: 2.5rem 0 3.5rem;">
+<!-- DONATION DETAILS -->
+<section class="section donate-section">
+    <div class="container donate-grid">
+        <article class="donate-card">
+            <h3>Why Give?</h3>
+            <p>
+                Your support provides program scholarships, emergency assistance, leadership retreats, art supplies,
+                mental wellness support, and so much more. Together we create pathways for youth to thrive academically,
+                emotionally, and spiritually.
+            </p>
+        </article>
 
-  <section class="section">
-    <header class="section-header">
-      <div class="section-kicker">SUPPORT OUR WORK</div>
-      <h1 class="section-title">Donate to RK6 Youth in Action</h1>
-      <p class="section-subtitle">
-        Donations help provide materials, transportation, meals, program supplies, and resources that directly benefit youth.
-      </p>
-    </header>
+        <article class="donate-card">
+            <h3>Ways To Give</h3>
+            <ul class="giving-list">
+                <li><span>CashApp</span><strong>$ouryouthourfuture</strong></li>
+                <li><span>Givelify</span><strong>Available upon request</strong></li>
+                <li><span>Email</span><a href="mailto:kwashington@royalk6.org">kwashington@royalk6.org</a></li>
+                <li><span>Phone</span><strong>803-961-7463 ext. 613</strong></li>
+            </ul>
+        </article>
 
-    <div class="embed-box" style="max-width: 600px; margin-top: 2rem;">
-      <h3>Make a Donation</h3>
-      <p style="font-size: 1rem; color: #4b5563;">
-        Your support helps young people gain mentorship, life skills, community engagement opportunities, and safe spaces to grow.
-      </p>
-
-      <!-- Placeholder until PayPal link is provided -->
-      <a href="#" class="btn-primary" style="margin-top: 1rem; display: inline-block;">
-        Donate (PayPal link coming soon)
-      </a>
+        <article class="donate-card">
+            <h3>Secure Online Giving</h3>
+            <p>
+                We are finalizing our online giving portal. In the meantime, please reach out and we will send a secure link
+                or invoice tailored to your giving method (PayPal, card, or ACH).
+            </p>
+            <a class="btn outline" href="mailto:Kenya6washington@icloud.com?subject=Online donation request">Request Link</a>
+        </article>
     </div>
-  </section>
+</section>
 
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-flex">
-    <div>© <span id="year"></span> RK6 Youth in Action.</div>
-    <div class="footer-links">
-      <a href="mailto:Kenya6Washington@icloud.com">Email</a>
-      <a href="contact.html">Contact</a>
+<!-- FOOTER -->
+<footer>
+    <div class="footer-logo">
+        <img src="assets/images/logo-dark.png" alt="Royal K6 Footer Logo">
     </div>
-  </div>
+    <p>&copy; 2025 RK6 Youth In Action. All rights reserved.</p>
+    <p><a href="mailto:Kenya6washington@icloud.com">Contact: Kenya6washington@icloud.com</a></p>
 </footer>
-
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 
 </body>
 </html>
