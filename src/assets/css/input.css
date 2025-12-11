@@ -42,6 +42,10 @@
   .nav-link {
     @apply text-rk6-text dark:text-text-light hover:text-royal-purple dark:hover:text-purple-glow transition-colors duration-300 font-medium;
   }
+
+  .site-nav {
+    @apply bg-white/90 dark:bg-bg-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-lg;
+  }
   
   .sparkle {
     position: absolute;
