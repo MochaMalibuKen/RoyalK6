@@ -7,10 +7,10 @@
     <meta name="description" content="{% if description %}{{ description }}{% else %}Empowering young individuals to become proactive leaders and compassionate citizens in their communities.{% endif %}">
     
     <!-- Favicon -->
-    <link rel="icon" href="/assets/images/favicon.ico">
+    <link rel="icon" href="{{ '/assets/images/favicon.ico' | url }}">
     
     <!-- Styles -->
-    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="{{ '/assets/css/style.css' | url }}" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Fonts -->
@@ -42,8 +42,8 @@
             <div class="flex justify-between items-center py-4">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <img id="logo-light" src="/assets/images/logo-light.png" alt="RK6 Youth in Action" class="h-12 w-auto dark:hidden">
-                    <img id="logo-dark" src="/assets/images/banner-hero.png" alt="RK6 Youth in Action banner" class="h-12 w-auto hidden dark:block">
+                    <img id="logo-light" src="{{ '/assets/images/logo-light.png' | url }}" alt="RK6 Youth in Action" class="h-12 w-auto dark:hidden">
+                    <img id="logo-dark" src="{{ '/assets/images/banner-hero.png' | url }}" alt="RK6 Youth in Action banner" class="h-12 w-auto hidden dark:block">
                 </div>
                 
                 <!-- Desktop Navigation -->
@@ -102,7 +102,7 @@
             <div class="grid md:grid-cols-4 gap-8">
                 <!-- Logo and Mission -->
                 <div class="md:col-span-2">
-                    <img src="/assets/images/banner-hero.png" alt="RK6 Youth in Action banner" class="h-12 w-auto mb-4">
+                    <img src="{{ '/assets/images/banner-hero.png' | url }}" alt="RK6 Youth in Action banner" class="h-12 w-auto mb-4">
                     <p class="text-gray-300 mb-4">
                         Empowering young individuals to become proactive leaders and compassionate citizens in their communities.
                     </p>
@@ -159,7 +159,7 @@
     
     <!-- Scripts -->
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="{{ '/assets/js/main.js' | url }}"></script>
     <div id="sparkles-container"></div>
 </body>
 </html>
