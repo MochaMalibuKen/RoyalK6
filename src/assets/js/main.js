@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('theme-toggle');
     const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
     const html = document.documentElement;
+    let navTheme = 'nav-dark';
     
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
@@ -30,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateLogo() {
         const logoLight = document.getElementById('logo-light');
         const logoDark = document.getElementById('logo-dark');
-        const isDark = html.classList.contains('dark');
+        // Prefer the nav theme if present; otherwise fall back to global dark mode
+        const isDark = navTheme === 'nav-dark' ? true : (navTheme === 'nav-light' ? false : html.classList.contains('dark'));
         
         if (logoLight && logoDark) {
             logoLight.classList.toggle('hidden', isDark);
@@ -184,11 +186,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navbar Background on Scroll
     const navbar = document.querySelector('nav.site-nav');
     if (navbar) {
-        const navTheme = navbar.dataset.navTheme || 'nav-dark';
+        navTheme = navbar.dataset.navTheme || 'nav-dark';
 
         function applyNavTheme() {
             navbar.classList.remove('nav-dark', 'nav-light');
             navbar.classList.add(navTheme);
+            updateLogo();
         }
 
         applyNavTheme();
