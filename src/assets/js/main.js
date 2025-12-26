@@ -4,8 +4,117 @@ document.addEventListener('DOMContentLoaded', function() {
     // Dark Mode Toggle Functionality
     const themeToggle = document.getElementById('theme-toggle');
     const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    const languageToggle = document.getElementById('language-toggle');
+    const mobileLanguageToggle = document.getElementById('mobile-language-toggle');
+    const mobileLanguageToggleLabel = document.getElementById('mobile-language-toggle-label');
     const html = document.documentElement;
+    const pageKey = document.body.dataset.page || 'home';
     let navTheme = 'nav-dark';
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    // Translation strings
+    const translations = {
+        en: {
+            common: {
+                'nav.home': 'Home',
+                'nav.about': 'About',
+                'nav.programs': 'Programs',
+                'nav.getInvolved': 'Get Involved',
+                'nav.contact': 'Contact',
+                'nav.themeToggle': 'Toggle Theme'
+            },
+            home: {
+                'hero.title': 'RK6 Youth in Action',
+                'hero.subtitle': 'Empower. Inspire. Transform.',
+                'hero.copy': 'Empowering young individuals to become proactive leaders and compassionate citizens in their communities.',
+                'hero.location': 'Serving the CSRA and surrounding area.',
+                'hero.ctaPrimary': 'Get Involved',
+                'hero.ctaSecondary': 'Donate Now',
+                'mission.title': 'Our Mission',
+                'mission.copy': 'Our mission is to empower and inspire young individuals to become proactive leaders and compassionate citizens in their communities. We strive to provide a nurturing platform for youth to develop their skills, explore their passions, and engage in meaningful projects that promote social responsibility, innovation, and positive change.',
+                'leadership.title': 'Our Leadership',
+                'leadership.copy': 'Meet the passionate leaders driving our mission forward',
+                'programs.title': 'Our Programs',
+                'programs.copy': "Discover the ways we're making a difference in young lives"
+            },
+            about: {
+                'hero.title': 'About RK6',
+                'hero.copy': 'Empowering the next generation of leaders, innovators, and change-makers',
+                'mission.title': 'Our Mission'
+            },
+            programs: {
+                'hero.title': 'Our Programs',
+                'hero.copy': 'Transformative experiences that build leaders, inspire change, and create lasting impact',
+                'overview.title': 'Empowering Through Action',
+                'overview.copy': 'Our comprehensive programs are designed to meet young people where they are and help them grow into the leaders our communities need. Each program combines hands-on learning, mentorship, and real-world application to create meaningful, lasting change.'
+            },
+            'get-involved': {
+                'hero.title': 'Get Involved',
+                'hero.copy': 'Join our movement and help create lasting change in the lives of young people',
+                'overview.title': 'Ways to Make a Difference',
+                'overview.copy': 'Whether you have time to volunteer, resources to share, or skills to teach, there are many ways to support our mission and impact young lives in your community.'
+            },
+            contact: {
+                'hero.title': 'Contact Us',
+                'hero.copy': "Ready to connect? We'd love to hear from you and answer any questions about our programs"
+            },
+            'thank-you': {
+                'hero.title': 'Thank You!',
+                'hero.copy': "We've received your message and we're excited to connect with you.",
+                'hero.followup': 'Our team will review your submission and get back to you within 24-48 hours. We appreciate your interest in RK6 Youth in Action!'
+            }
+        },
+        es: {
+            common: {
+                'nav.home': 'Inicio',
+                'nav.about': 'Acerca de',
+                'nav.programs': 'Programas',
+                'nav.getInvolved': 'Involúcrate',
+                'nav.contact': 'Contacto',
+                'nav.themeToggle': 'Cambiar tema'
+            },
+            home: {
+                'hero.title': 'RK6 Juventud en Acción',
+                'hero.subtitle': 'Empoderar. Inspirar. Transformar.',
+                'hero.copy': 'Empoderamos a los jóvenes para que se conviertan en líderes proactivos y ciudadanos compasivos en sus comunidades.',
+                'hero.location': 'Sirviendo a la zona CSRA y alrededores.',
+                'hero.ctaPrimary': 'Participa',
+                'hero.ctaSecondary': 'Donar Ahora',
+                'mission.title': 'Nuestra Misión',
+                'mission.copy': 'Nuestra misión es empoderar e inspirar a los jóvenes para que sean líderes proactivos y ciudadanos compasivos en sus comunidades. Buscamos ofrecer una plataforma de apoyo para que desarrollen sus habilidades, exploren sus pasiones y participen en proyectos significativos que promuevan la responsabilidad social, la innovación y el cambio positivo.',
+                'leadership.title': 'Nuestro Liderazgo',
+                'leadership.copy': 'Conoce a las personas apasionadas que impulsan nuestra misión',
+                'programs.title': 'Nuestros Programas',
+                'programs.copy': 'Descubre cómo marcamos la diferencia en la vida de los jóvenes'
+            },
+            about: {
+                'hero.title': 'Sobre RK6',
+                'hero.copy': 'Empoderando a la próxima generación de líderes, innovadores y agentes de cambio',
+                'mission.title': 'Nuestra Misión'
+            },
+            programs: {
+                'hero.title': 'Nuestros Programas',
+                'hero.copy': 'Experiencias transformadoras que forman líderes, inspiran el cambio y crean impacto duradero',
+                'overview.title': 'Empoderar a través de la acción',
+                'overview.copy': 'Nuestros programas integrales están diseñados para acompañar a los jóvenes donde se encuentren y ayudarlos a crecer como líderes que nuestras comunidades necesitan. Cada programa combina aprendizaje práctico, mentoría y aplicación en el mundo real para generar cambios significativos y duraderos.'
+            },
+            'get-involved': {
+                'hero.title': 'Involúcrate',
+                'hero.copy': 'Únete a nuestro movimiento y ayuda a crear un cambio duradero en la vida de los jóvenes',
+                'overview.title': 'Formas de marcar la diferencia',
+                'overview.copy': 'Ya sea que tengas tiempo para ser voluntario, recursos para compartir o habilidades para enseñar, hay muchas maneras de apoyar nuestra misión e impactar la vida de los jóvenes en tu comunidad.'
+            },
+            contact: {
+                'hero.title': 'Contáctanos',
+                'hero.copy': '¿Listo para conectar? Nos encantaría saber de ti y responder cualquier pregunta sobre nuestros programas'
+            },
+            'thank-you': {
+                'hero.title': '¡Gracias!',
+                'hero.copy': 'Hemos recibido tu mensaje y estamos emocionados de conectarnos contigo.',
+                'hero.followup': 'Nuestro equipo revisará tu solicitud y se pondrá en contacto en 24-48 horas. ¡Agradecemos tu interés en RK6 Youth in Action!'
+            }
+        }
+    };
     
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('theme');
@@ -41,6 +150,42 @@ document.addEventListener('DOMContentLoaded', function() {
             logoDark.classList.toggle('dark:block', isDark);
         }
     }
+
+    // Translation helpers
+    function updateLanguageButtons() {
+        const label = currentLang === 'en' ? 'ES' : 'EN';
+        if (languageToggle) languageToggle.textContent = label;
+        if (mobileLanguageToggleLabel) mobileLanguageToggleLabel.textContent = label;
+    }
+
+    function getTranslation(key) {
+        const pageTranslations = translations[currentLang]?.[pageKey] || {};
+        const commonTranslations = translations[currentLang]?.common || {};
+        return pageTranslations[key] || commonTranslations[key] || null;
+    }
+
+    function applyTranslations(lang) {
+        if (lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+        }
+        html.setAttribute('lang', currentLang);
+
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.dataset.i18n;
+            const value = getTranslation(key);
+            if (value) {
+                element.innerHTML = value;
+            }
+        });
+
+        updateLanguageButtons();
+    }
+
+    function toggleLanguage() {
+        const nextLang = currentLang === 'en' ? 'es' : 'en';
+        applyTranslations(nextLang);
+    }
     
     // Add event listeners for theme toggles
     if (themeToggle) {
@@ -49,9 +194,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileThemeToggle) {
         mobileThemeToggle.addEventListener('click', toggleTheme);
     }
+    if (languageToggle) {
+        languageToggle.addEventListener('click', toggleLanguage);
+    }
+    if (mobileLanguageToggle) {
+        mobileLanguageToggle.addEventListener('click', toggleLanguage);
+    }
     
-    // Initial logo update
+    // Initial logo update and translations
     updateLogo();
+    applyTranslations(currentLang);
     
     
     // Mobile Menu Toggle
