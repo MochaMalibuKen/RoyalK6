@@ -25,7 +25,8 @@
     <meta property="og:url" content="{{ page.url }}">
     <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="font-body">
+{% assign nav_theme = theme | default: 'dark' %}
+<body class="font-body {% if nav_theme == 'light' %}page-light{% else %}page-dark{% endif %}">
     <div id="fb-root"></div>
     <script>
         // Ensure the Facebook SDK initializes and parses XFBML once loaded
@@ -37,7 +38,7 @@
         };
     </script>
     <!-- Navigation -->
-    <nav class="site-nav nav-dark fixed top-0 w-full z-50 backdrop-blur-md transition-all duration-300">
+    <nav class="site-nav {% if nav_theme == 'light' %}nav-light{% else %}nav-dark{% endif %} fixed top-0 w-full z-50 backdrop-blur-md transition-all duration-300" data-nav-theme="{% if nav_theme == 'light' %}nav-light{% else %}nav-dark{% endif %}">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <!-- Logo -->

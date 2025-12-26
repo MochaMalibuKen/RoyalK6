@@ -182,20 +182,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     // Navbar Background on Scroll
-    const navbar = document.querySelector('nav');
+    const navbar = document.querySelector('nav.site-nav');
     if (navbar) {
-        function updateNavbar() {
-            if (window.scrollY > 100) {
-                navbar.classList.add('nav-light');
-                navbar.classList.remove('nav-dark');
-            } else {
-                navbar.classList.add('nav-dark');
-                navbar.classList.remove('nav-light');
-            }
+        const navTheme = navbar.dataset.navTheme || 'nav-dark';
+
+        function applyNavTheme() {
+            navbar.classList.remove('nav-dark', 'nav-light');
+            navbar.classList.add(navTheme);
         }
-        
-        window.addEventListener('scroll', updateNavbar);
-        updateNavbar(); // Initial check
+
+        applyNavTheme();
     }
     
     
