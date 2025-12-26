@@ -186,11 +186,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (navbar) {
         function updateNavbar() {
             if (window.scrollY > 100) {
-                navbar.classList.add('bg-white/95', 'dark:bg-bg-dark/95');
-                navbar.classList.remove('bg-white/90', 'dark:bg-bg-dark/90');
+                navbar.classList.add('nav-light');
+                navbar.classList.remove('nav-dark');
             } else {
-                navbar.classList.remove('bg-white/95', 'dark:bg-bg-dark/95');
-                navbar.classList.add('bg-white/90', 'dark:bg-bg-dark/90');
+                navbar.classList.add('nav-dark');
+                navbar.classList.remove('nav-light');
             }
         }
         

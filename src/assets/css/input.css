@@ -44,7 +44,31 @@
   }
 
   .site-nav {
-    @apply bg-white/90 dark:bg-bg-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-lg;
+    @apply shadow-lg;
+  }
+
+  .nav-dark {
+    @apply bg-gradient-to-r from-[#0b0f14]/80 via-[#1a1230]/80 to-[#251645]/80 border-b border-white/10 text-white;
+  }
+
+  .nav-light {
+    @apply bg-white/95 dark:bg-bg-dark/95 border-b border-gray-200 dark:border-gray-700 text-rk6-text;
+  }
+
+  .nav-dark .nav-link {
+    @apply text-white hover:text-rk6-gold;
+  }
+
+  .nav-light .nav-link {
+    @apply text-rk6-text dark:text-text-light hover:text-royal-purple dark:hover:text-purple-glow;
+  }
+
+  .nav-dark #mobile-menu {
+    @apply bg-gradient-to-r from-[#0b0f14]/95 via-[#1a1230]/95 to-[#251645]/95 border-t border-white/15;
+  }
+
+  .nav-light #mobile-menu {
+    @apply bg-white dark:bg-bg-dark border-t border-gray-200 dark:border-gray-700;
   }
   
   .sparkle {
