@@ -199,6 +199,51 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     
+    // Simple Carousel (services/flyers)
+    const carousels = document.querySelectorAll('[data-carousel]');
+    carousels.forEach(carousel => {
+        const track = carousel.querySelector('[data-carousel-track]');
+        if (!track) return;
+
+        const slides = Array.from(track.children);
+        const dots = carousel.querySelectorAll('[data-carousel-dot]');
+        const prev = carousel.querySelector('[data-carousel-prev]');
+        const next = carousel.querySelector('[data-carousel-next]');
+        let index = 0;
+
+        function update() {
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('bg-royal-purple/70', i === index);
+                dot.classList.toggle('bg-gray-300', i !== index);
+                dot.classList.toggle('dark:bg-gray-600', i !== index);
+            });
+        }
+
+        function goTo(newIndex) {
+            const total = slides.length;
+            index = (newIndex + total) % total;
+            update();
+        }
+
+        if (prev) prev.addEventListener('click', () => goTo(index - 1));
+        if (next) next.addEventListener('click', () => goTo(index + 1));
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => goTo(i));
+        });
+
+        // Auto-play with pause on hover for accessibility
+        let autoPlay = setInterval(() => goTo(index + 1), 7000);
+        carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
+        carousel.addEventListener('mouseleave', () => {
+            autoPlay = setInterval(() => goTo(index + 1), 7000);
+        });
+
+        update();
+    });
+    
+    
     // Form Enhancement
     const forms = document.querySelectorAll('form[data-netlify="true"]');
     forms.forEach(form => {
