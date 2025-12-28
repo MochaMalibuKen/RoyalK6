@@ -2,6 +2,7 @@ module.exports = function(eleventyConfig) {
   // Copy assets
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/admin");
+  eleventyConfig.addPassthroughCopy("CNAME");
   
   // Watch CSS files
   eleventyConfig.addWatchTarget("src/assets/css/");
