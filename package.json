@@ -12,11 +12,11 @@
   "keywords": ["nonprofit", "youth", "jamstack", "eleventy"],
   "author": "RK6 Youth in Action",
   "license": "MIT",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
     "@11ty/eleventy": "^2.0.1",
     "tailwindcss": "^3.3.6",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32"
-  },
-  "dependencies": {}
+  }
 }
