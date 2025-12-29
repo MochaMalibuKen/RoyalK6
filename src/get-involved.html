@@ -109,11 +109,13 @@ page_key: get-involved
         </div>
         
         <div class="bg-white dark:bg-neutral-dark rounded-2xl p-8 shadow-xl">
-            <form name="volunteer-application" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="space-y-6">
+            <form name="volunteer-application" method="POST" action="https://formsubmit.co/kwashington@royalk6.org" class="space-y-6">
+                <!-- FormSubmit settings -->
+                <input type="hidden" name="_next" value="https://royalk6.org/thank-you/">
+                <input type="hidden" name="_captcha" value="false">
                 <!-- Hidden honeypot field for spam protection -->
-                <input type="hidden" name="form-name" value="volunteer-application">
                 <div class="hidden">
-                    <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                    <label>Don't fill this out if you're human: <input name="_honey"></label>
                 </div>
                 
                 <!-- Personal Information -->
