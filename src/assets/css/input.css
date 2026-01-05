@@ -70,6 +70,18 @@
   .nav-light #mobile-menu {
     @apply bg-white dark:bg-bg-dark border-t border-gray-200 dark:border-gray-700;
   }
+
+  .coming-soon-overlay {
+    @apply fixed inset-0 z-[999] flex items-center justify-center px-6 bg-gradient-to-br from-neutral-dark via-[#120c1f] to-[#24103a] text-white;
+  }
+
+  .coming-soon-card {
+    @apply max-w-2xl w-full text-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-10 shadow-2xl;
+  }
+
+  .coming-soon-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-sm uppercase tracking-wide text-rk6-gold mb-4 border border-white/20;
+  }
   
   .sparkle {
     position: absolute;

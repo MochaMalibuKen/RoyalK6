@@ -26,19 +26,34 @@
     <meta name="twitter:card" content="summary_large_image">
 </head>
 {% assign nav_theme = theme | default: 'dark' %}
+{% assign site_locked = site.locked | default: false %}
 <body class="font-body {% if nav_theme == 'light' %}page-light{% else %}page-dark{% endif %}" data-page="{{ page.page_key | default: page.fileSlug | default: 'home' }}">
-    <div id="fb-root"></div>
-    <script>
-        // Ensure the Facebook SDK initializes and parses XFBML once loaded
-        window.fbAsyncInit = function() {
-            FB.init({
-                xfbml: true,
-                version: 'v19.0'
-            });
-        };
-    </script>
-    <!-- Navigation -->
-    <nav class="site-nav {% if nav_theme == 'light' %}nav-light{% else %}nav-dark{% endif %} fixed top-0 w-full z-50 backdrop-blur-md transition-all duration-300" data-nav-theme="{% if nav_theme == 'light' %}nav-light{% else %}nav-dark{% endif %}">
+    {% if site_locked %}
+    <section class="coming-soon-overlay">
+        <div class="coming-soon-card">
+            <div class="coming-soon-badge">Temporary Hold</div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ site.lockHeading | default: "We're preparing something great." }}</h1>
+            <p class="text-lg text-gray-200 mb-6">{{ site.lockMessage | default: "This site is temporarily unavailable. Please check back soon." }}</p>
+            <div class="space-y-2 text-sm text-gray-300">
+                <p>Questions? Email <a href="mailto:{{ site.contactEmail | default: 'info@royalk6.org' }}" class="text-rk6-gold underline">{{ site.contactEmail | default: 'info@royalk6.org' }}</a></p>
+                <p>Call us: <span class="text-rk6-gold">{{ site.contactPhone | default: '706-329-2557' }}</span></p>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    <div class="{% if site_locked %}hidden{% endif %}">
+        <div id="fb-root"></div>
+        <script>
+            // Ensure the Facebook SDK initializes and parses XFBML once loaded
+            window.fbAsyncInit = function() {
+                FB.init({
+                    xfbml: true,
+                    version: 'v19.0'
+                });
+            };
+        </script>
+        <!-- Navigation -->
+        <nav class="site-nav {% if nav_theme == 'light' %}nav-light{% else %}nav-dark{% endif %} fixed top-0 w-full z-50 backdrop-blur-md transition-all duration-300" data-nav-theme="{% if nav_theme == 'light' %}nav-light{% else %}nav-dark{% endif %}">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <!-- Logo -->
@@ -94,15 +109,15 @@
                 </button>
             </div>
         </div>
-    </nav>
-    
-    <!-- Main Content -->
-    <main class="pt-20">
-        {{ content }}
-    </main>
-    
-    <!-- Footer -->
-    <footer class="bg-neutral-dark text-white py-16">
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="pt-20">
+            {{ content }}
+        </main>
+        
+        <!-- Footer -->
+        <footer class="bg-neutral-dark text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <!-- Logo and Mission -->
@@ -149,7 +164,7 @@
                 <!-- Contact Info -->
                 <div>
                     <h3 class="text-lg font-semibold mb-4 text-rk6-gold">Contact</h3>
-                    <p class="text-gray-300 mb-2">Email: kwashington@royalk6.org</p>
+                    <p class="text-gray-300 mb-2">Email: info@royalk6.org</p>
                     <p class="text-gray-300">Work: 706-329-2557</p>
                     <p class="text-gray-300">Roy's Work: 706-392-1901</p>
                     <p class="text-gray-400 text-sm mt-3">Serving the CSRA and surrounding area</p>
@@ -166,5 +181,6 @@
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"></script>
     <script src="{{ '/assets/js/main.js' | url }}"></script>
     <div id="sparkles-container"></div>
+    </div>
 </body>
 </html>
