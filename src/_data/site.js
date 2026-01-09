@@ -1,5 +1,5 @@
 module.exports = {
-  locked: true,
+  locked: false,
   lockHeading: "We'll be right back.",
   lockMessage: "This site is temporarily unavailable. Please check back soon.",
   contactEmail: "info@royalk6.org",
